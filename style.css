@@ -1,4 +1,7 @@
 .jumbotron {
-    padding: 1rem 1rem;
     background-color: #404650;
+    padding: 1rem 1rem;
+}
+.carousel-caption h3 {
+    font-size: 40px;
 }
