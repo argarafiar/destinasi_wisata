@@ -8,6 +8,44 @@ body {
 .nav-item {
     margin-right: 10px;
 }
+nav {
+    position: fixed;
+    z-index: 100000;
+    transition: .5s;
+ }
+ 
+ nav.sticky {
+    background-color: #212529;
+ }
+ 
+ nav.sticky .navbar-brand {
+    font-size: 2rem;
+    transition: .5s;
+ }
+ 
+ nav.sticky .navbar-brand, nav.sticky .navbar-nav .nav-item a {
+    color: white;
+ }
+ 
+ nav .navbar-brand, nav .navbar-nav .nav-item a, nav .navbar-nav-scroll {
+    color: white;
+ }
+ 
+ nav .navbar-brand {
+    letter-spacing: 1px;
+    font-size: 2.5rem;
+    font-weight: 500;
+ }
+ .button-mode {
+     text-decoration: none;
+     border: none;
+     color: white;
+     background: none;
+ }
+ .dark-mode {
+    background-color: #1d1d1d;
+    color: white;
+  }
 .jumbotron {
     background-color: #404650;
     padding: 1rem 1rem;

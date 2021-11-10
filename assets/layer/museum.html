@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!--animasi-->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 
     <!-- CSS -->
     <style>
@@ -21,6 +22,44 @@
     .nav-item {
         margin-right: 10px;
     }
+    nav {
+  position: fixed;
+  z-index: 100000;
+  transition: .5s;
+ }
+ 
+ nav.sticky {
+    background-color: #212529;
+ }
+ 
+ nav.sticky .navbar-brand {
+    font-size: 2rem;
+    transition: .5s;
+ }
+ 
+ nav.sticky .navbar-brand, nav.sticky .navbar-nav .nav-item a {
+    color: white;
+ }
+ 
+ nav .navbar-brand, nav .navbar-nav .nav-item a, nav .navbar-nav-scroll {
+    color: white;
+ }
+ 
+ nav .navbar-brand {
+    letter-spacing: 1px;
+    font-size: 2.5rem;
+    font-weight: 500;
+ }
+ .button-mode {
+     text-decoration: none;
+     border: none;
+     color: white;
+     background: none;
+ }
+ .dark-mode {
+    background-color: #1d1d1d;
+    color: white;
+  }
     .jumbotron {
         background-color: #404650;
         padding: 1rem 1rem;
@@ -52,7 +91,7 @@
 <body>
   <!--====================================== jumbotron judul ====================================-->
     <section id="home">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+      <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
         <div class="container">
           <a class="navbar-brand" href="#" style="font-family: 'kids'; font-size: 30px;">Widarjo</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,6 +111,7 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#lokasi">Lokasi</a>
               </li>
+              <button class="button-mode" onclick="myFunction()">Mode</button>
             </ul>
           </div>
         </div>
@@ -120,11 +160,11 @@
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="bi bi-caret-left" aria-hidden="true" style="font-size: 40px;"></span>
           <span class="visually-hidden">Previous</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="bi bi-caret-right" aria-hidden="true" style="font-size: 40px;"></span>
           <span class="visually-hidden">Next</span>
         </button>
     </div>
@@ -141,7 +181,7 @@
   <section class="text-center mt-3">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-8 fs-5" data-aos="fade-up">
+        <div class="col-md-8 fs-5" data-aos="fade-up" style="font-family: sans-serif;">
           <!--<h2>Gelora Delta Sidoarjo</h2>-->
           <p>Museum Mpu Tantular adalah tempat yang menyimpan berbagai sumber sejarah
              dan sebagai salah satu Museum Sidoarjo. Luas dari salah satu museum Sidoarjo ini adalah sekitar 3 hektar.
@@ -231,12 +271,12 @@
     <div class="container border rounded-3 shadow">
       <div class="row justify-content-center" style="margin-top: 30px;">  
         <div class="col-md-4 text-start">
-            <h2>Tentang kami</h2>
+            <h2 style="font-family: sans-serif;">Tentang kami</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, quaerat, illum ab facilis error neque distinctio alias est veritatis, consectetur earum deserunt tempora necessitatibus dolor nesciunt nobis amet ducimus autem.</p>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-4 text-start">
-            <h2>Lokasi</h2>
+            <h2 style="font-family: sans-serif;">Lokasi</h2>
             <div class="card">
                 <div class="inner">
                     <img class="card-img-top" src="../img-museum/map-museum.png" alt="">
@@ -260,7 +300,25 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>   
       AOS.init(); 
+
+      window.addEventListener('scroll', () => {
+        let navbar = document.querySelector('nav');
+	      navbar.classList.toggle('sticky', window.scrollY > 0);
+        if (window.scrollY <= 0) {
+          navbar.classList.add('py-4', window.scrollY > 0);
+          navbar.classList.remove('py-1', window.scrollY > 0);
+	    } else {
+          navbar.classList.add('py-1', window.scrollY > 0);
+          navbar.classList.remove('py-4', window.scrollY > 0);
+	    } })
     </script>
+
+<script>
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
+</script>
   <!-- -->
   
 </body>
